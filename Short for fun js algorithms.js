@@ -59,11 +59,11 @@ palindrome("0_0 (: /-\ :) 0-0");
  */
 function findLongestWord(str) {
     var array = str.split(' ');
-    var hi_num = array[0].length;
+    var high_num = array[0].length;
     for (var i = 1; i < array.length; i++) {
-        hi_num = (hi_num < array[i].length) ? array[i].length : hi_num;
+        high_num = (high_num < array[i].length) ? array[i].length : high_num;
     }
-    console.log(hi_num);
+    console.log(high_num);
     //return str.length;
 }
 
@@ -79,13 +79,11 @@ function titleCase(str) {
     for (var i = 1; i < array.length; i++) {
         str += " " + array[i].charAt(0).toUpperCase() + array[i].toLowerCase().slice(1, array[i].length);
     }
-    console.log(str === "I'm A Little Tea Pot");
-    console.log("I'm A Little Tea Pot");
     console.log(str);
     //return str;
 }
 
-titleCase("I'm a little tea pot");
+titleCase("I'm a little tea pot SHoRt AnD StoUt");
 
 /**
  *
