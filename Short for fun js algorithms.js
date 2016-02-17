@@ -105,3 +105,86 @@ function largestOfFour(arr) {
 }
 
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+/**
+ *
+ * @param{string} str a string that you would like to have repeated
+ * @param{number} num The number of time you would like to repeat your string
+ * @returns {string} Input string duplicated input number of times
+ */
+function repeat(str, num) {
+    if (num < 0) {
+        return '';
+    }
+    var newStr = '';
+    for (var i = 0; i < num; i++) {
+        newStr += str;
+    }
+    console.log(newStr);
+    return newStr;
+}
+
+repeat("abc", 3);
+
+/**
+ *
+ * @param {String} str a string with an end value you would like to check
+ * @param{String} target a string you would like to have compared with the end value of the first argument
+ * @returns {boolean} true if end of 1 string == string 2
+ */
+function end(str, target) {
+
+    console.log(str.substr(str.length - target.length, str.length));
+    return str;
+}
+
+end("Bastian", "adgn");
+
+
+/**
+ *
+ * @param{String} str a sting to be truncated to a given number of chars
+ * @param{number} num the number of chars you would like to truncate your string to
+ * @returns{String} truncated string
+ */
+function truncate(str, num) {
+    var newStr = '';
+    if (num <= 3) {
+        newStr = str.slice(0, num) + '...';
+    } else if (num >= str.length) {
+        newStr = str.slice(0, num);
+    } else {
+        newStr = str.slice(0, num - 3) + '...';
+    }
+    console.log(newStr);
+    return newStr;
+}
+
+truncate("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2);
+
+/**
+ * This is a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+ * @param{[]} arr the array you would like to split into smaller arrays
+ * @param{number} size the size of the inner arrays
+ * @returns {*[]}
+ */
+function chunk(arr, size) {
+    // Break it up.
+    var arr2 = [[arr[0]]];
+    var count = 1;
+    if (arr.length >= size) {
+        for (var i = 1; i < arr.length; i++) {
+            if(count == size){
+                count = 1;
+                arr2.push([arr[i]]);
+            }else{
+                count++;
+                arr2[arr2.length - 1].push(arr[i]);
+            }
+        }
+    }
+    console.log(arr2);
+    return arr2;
+}
+
+chunk(["a", "b", "c", "d"], 2);
