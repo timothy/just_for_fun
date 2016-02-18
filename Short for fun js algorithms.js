@@ -188,3 +188,16 @@ function chunk(arr, size) {
 }
 
 chunk(["a", "b", "c", "d"], 2);
+
+/**
+ *  Return the remaining elements of an array after chopping off n elements from the head.
+ * @param{Array} arr the array that you would like to shorten
+ * @param{number} howMany a number amount of how many array position to be ommeted from the head of the array
+ * @returns {Array} the shortened array
+ */
+function slasher(arr, howMany) {
+    // it doesn't always pay to be first
+    return arr.slice(howMany, arr.length);
+}
+
+slasher([1, 2, 3], 2);
