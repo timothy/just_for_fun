@@ -217,7 +217,7 @@ function mutation(arr) {
                 return false;//indexOf -1
             }
         }
-        return true;//no letter found with indexOf -1
+        return true;//no letter found with indexOf -1 i.e.
     } else {//invalid argument return false
         return false;
     }
@@ -241,3 +241,21 @@ function bouncer(arr) {
 
 console.log(bouncer([7, "ate", "", false, 9]));
 
+/**
+ * Remove all elements from the initial array argument that are of the same value as any additional arguments
+ * @param{Array} arr An array to be cross referenced with
+ * @returns {Array.<T>|*}
+ */
+function destroyer(arr) {
+    // Remove all the values == to arguments[index >= 1]
+    return arr.filter(function (value){
+        for (var i = 1; i < destroyer.arguments.length; i++) {
+            if(destroyer.arguments[i] == value){
+                return false;
+            }
+        }
+        return true;
+    });
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
