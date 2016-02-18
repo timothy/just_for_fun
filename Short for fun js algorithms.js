@@ -174,10 +174,10 @@ function chunk(arr, size) {
     var count = 1;
     if (arr.length >= size) {
         for (var i = 1; i < arr.length; i++) {
-            if(count == size){
+            if (count == size) {
                 count = 1;
                 arr2.push([arr[i]]);
-            }else{
+            } else {
                 count++;
                 arr2[arr2.length - 1].push(arr[i]);
             }
@@ -201,3 +201,43 @@ function slasher(arr, howMany) {
 }
 
 slasher([1, 2, 3], 2);
+
+/**
+ * Return true if the string in the first element of the array contains all
+ * of the letters of the string in the second element of the array.
+ * @param{Array} arr an array of two strings
+ * @returns{Boolean} true if both strings contain all of the same letters. invalid argument return false
+ */
+function mutation(arr) {
+    if (arr.length == 2) {
+        arr[0] = arr[0].toLowerCase();
+        arr[1] = arr[1].toLowerCase();
+        for (var i = 0; i < arr[1].length; i++) {
+            if (arr[0].indexOf(arr[1].charAt(i)) < 0) {
+                return false;//indexOf -1
+            }
+        }
+        return true;//no letter found with indexOf -1
+    } else {//invalid argument return false
+        return false;
+    }
+}
+
+mutation(["hello", "Hello"]);
+
+console.log(mutation(["hello", "elo"]));
+
+/**
+ *  Remove all falsy values from an array.
+ * @param{Array} arr an array that you would like to clean of all falsy values
+ * @returns {Array.<T>|*}
+ */
+function bouncer(arr) {
+    // Don't show a false ID to this bouncer.
+    return arr.filter(function (value) {
+        return value ? true : false;
+    });
+}
+
+console.log(bouncer([7, "ate", "", false, 9]));
+
