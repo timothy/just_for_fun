@@ -249,9 +249,9 @@ console.log(bouncer([7, "ate", "", false, 9]));
 function destroyer(arr) {
     // Remove all the values == to arguments[index >= 1]
     var args = arguments;
-    return arr.filter(function (value){
+    return arr.filter(function (value) {
         for (var i = 1; i < args.length; i++) {
-            if(args[i] == value){
+            if (args[i] == value) {
                 return false;
             }
         }
@@ -260,3 +260,57 @@ function destroyer(arr) {
 }
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
+/**
+ * Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted.
+ * @param{Array} arr
+ * @param{number} num
+ * @returns {number}
+ */
+function where(arr, num) {
+    // Find my place in this sorted array.
+    arr.sort(function (a, b) {
+        return a - b;
+    });
+
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] >= num) {
+            return i;
+        }
+    }
+    return arr.length;
+}
+
+console.log(where([40, 60], 50));
+
+
+/**
+ *   Caesar cipher
+ *  a function which takes a ROT13 encoded string as input and returns a decoded string.
+ * @param{string} str ROT13 encoded string
+ * @returns {string} decoded string
+ */
+function rot13(str) { // LBH QVQ VG!
+    var str2 = "";
+    var temp = 0;
+
+    for (var i = 0; i < str.length; i++) {
+
+        temp = str.charAt(i).charCodeAt();
+
+        console.log(i);
+        if (temp >= 65 && temp <= 90) {
+            if ((temp - 13) >= 65) {
+                str2 += String.fromCharCode(temp - 13);
+            } else {
+                str2 += String.fromCharCode(temp + 13);
+            }
+        } else {
+            str2 += String.fromCharCode(temp);
+        }
+    }
+    return str2;
+}
+
+// Change the inputs below to test
+console.log(rot13("SERR PBQR PNZC"));
