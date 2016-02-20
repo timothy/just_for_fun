@@ -248,9 +248,10 @@ console.log(bouncer([7, "ate", "", false, 9]));
  */
 function destroyer(arr) {
     // Remove all the values == to arguments[index >= 1]
+    var args = arguments;
     return arr.filter(function (value){
-        for (var i = 1; i < destroyer.arguments.length; i++) {
-            if(destroyer.arguments[i] == value){
+        for (var i = 1; i < args.length; i++) {
+            if(args[i] == value){
                 return false;
             }
         }
@@ -258,4 +259,4 @@ function destroyer(arr) {
     });
 }
 
-destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
